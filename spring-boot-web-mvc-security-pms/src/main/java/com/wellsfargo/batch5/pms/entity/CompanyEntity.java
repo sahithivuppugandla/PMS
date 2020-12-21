@@ -46,6 +46,10 @@ public class CompanyEntity implements Comparable<CompanyEntity> {
 	
 	@OneToMany(mappedBy="company", cascade=CascadeType.ALL)
 	private Set<StockEntity> stocks;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private BuyStockEntity buyStock;
  
     public CompanyEntity(){
    	 
@@ -137,7 +141,15 @@ public class CompanyEntity implements Comparable<CompanyEntity> {
 		this.stocks = stocks;
 	}
 
+	
 
+	public BuyStockEntity getBuyStock() {
+		return buyStock;
+	}
+
+	public void setBuyStock(BuyStockEntity buyStock) {
+		this.buyStock = buyStock;
+	}
 
 	public int compareTo(CompanyEntity comp) {
 		

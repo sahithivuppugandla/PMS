@@ -9,7 +9,7 @@
 		<script src="https://kit.fontawesome.com/996973c893.js"></script>
 	</head>
 	<body>
-		<jsp:include page="header-fragment.jsp"/>
+		<jsp:include page="/header"/>
 		<section class="container-fluid p-4">
 			<div class="jumbotron">
 				<h2>

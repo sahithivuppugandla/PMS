@@ -8,6 +8,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.wellsfargo.batch5.pms.entity.BuyStockEntity;
+
 
 
 public class CompanyModel implements Comparable<CompanyModel> {
@@ -43,6 +45,8 @@ public class CompanyModel implements Comparable<CompanyModel> {
 	
 	
 	private Set<StockModel> stocks;
+	
+	private BuyStockEntity buyStock;
  
     public CompanyModel(){
    	 
@@ -134,6 +138,14 @@ public class CompanyModel implements Comparable<CompanyModel> {
 		this.stocks = stocks;
 	}
 
+
+	public BuyStockEntity getBuyStock() {
+		return buyStock;
+	}
+
+	public void setBuyStock(BuyStockEntity buyStock) {
+		this.buyStock = buyStock;
+	}
 
 	@Override
 	public int compareTo(CompanyModel comp) {

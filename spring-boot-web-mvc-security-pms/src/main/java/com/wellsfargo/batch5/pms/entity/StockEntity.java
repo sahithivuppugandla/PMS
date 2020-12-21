@@ -36,6 +36,10 @@ public class StockEntity implements Comparable<StockEntity> {
 	@JoinColumn(name="comp_code")
 	private CompanyEntity company;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private BuyStockEntity buyStock;
+	
 	public StockEntity(){
 		
 	}
@@ -98,6 +102,16 @@ public class StockEntity implements Comparable<StockEntity> {
 	public int compareTo(StockEntity o) {
 		
 		return this.stockId.compareTo(o.stockId);
+	}
+	
+	
+
+	public BuyStockEntity getBuyStock() {
+		return buyStock;
+	}
+
+	public void setBuyStock(BuyStockEntity buyStock) {
+		this.buyStock = buyStock;
 	}
 
 	@Override

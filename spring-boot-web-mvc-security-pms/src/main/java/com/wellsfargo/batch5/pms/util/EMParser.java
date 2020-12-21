@@ -1,9 +1,11 @@
 package com.wellsfargo.batch5.pms.util;
 
 import com.wellsfargo.batch5.pms.entity.BackOfficeUserEntity;
+import com.wellsfargo.batch5.pms.entity.BuyStockEntity;
 import com.wellsfargo.batch5.pms.entity.CompanyEntity;
 import com.wellsfargo.batch5.pms.entity.InvestorEntity;
 import com.wellsfargo.batch5.pms.entity.StockEntity;
+import com.wellsfargo.batch5.pms.model.BuyStockModel;
 import com.wellsfargo.batch5.pms.model.CompanyModel;
 import com.wellsfargo.batch5.pms.model.RegisterBackOfficeUserModel;
 import com.wellsfargo.batch5.pms.model.RegisterInvestorModel;
@@ -36,6 +38,7 @@ public class EMParser {
 		target.setDate(source.getDate());
 		target.setTime(source.getTime());
 		target.setCompany(parse(source.getCompany()));
+		target.setBuyStock(parse(source.getBuyStock()));
 		
 		
 		return target;
@@ -67,6 +70,7 @@ public class EMParser {
 		target.setDate(source.getDate());
 		target.setTime(source.getTime());
 		target.setCompany(parse(source.getCompany()));
+		target.setBuyStock(parse(source.getBuyStock()));
 		
 		
 		return target;
@@ -97,6 +101,20 @@ public class EMParser {
 		target.setRole("INVESTOR");
 		target.setUserName(source.getUserName());
 		
+		return target;
+	}
+	
+	public static BuyStockEntity parse(BuyStockModel source) {
+		BuyStockEntity target = new BuyStockEntity();
+		
+		target.setShareCount(source.getShareCount());
+		return target;
+	}
+	
+	public static BuyStockModel parse(BuyStockEntity source) {
+		BuyStockModel target = new BuyStockModel();
+		
+		target.setShareCount(source.getShareCount());
 		return target;
 	}
 	
