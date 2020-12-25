@@ -13,52 +13,33 @@
 		<jsp:include page="/header"/>
 		<section class="container-fluid p-4">
 			
-			<h3>List of Companies</h3>
+			<h3>List of Commodities</h3>
 						
 			<c:choose>
-				<c:when test="${companies==null || companies.isEmpty() }">
+				<c:when test="${commodity==null || commodity.isEmpty() }">
 					<div class="alert alert-info">
-						<p>No Companies Available!
+						<p>No Commodity Available!
 					</div>
 				</c:when>
 				<c:otherwise>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th>Company Code</th>
-								<th>Company Title</th>
-								<th>Operations</th>
-								<th>Currency</th>
-								<th>Open Share Price</th>
-								<th>Sector</th>
-								<th>Share Count</th>
-								<th>Turnover</th>
-								<th colspan="2"></th>
+								<th>Commodity Name</th>
+								<th>Current Price</th>
+								<th>Updated date</th>
+								<th>Updated time</th>
+								
 							</tr>							
 						</thead>
 						<tbody>
-							<c:forEach var="c" items="${companies }">
+							<c:forEach var="s" items="${commodity }">
 								<tr>
-									<td>${c.companyCode }</td>
-									<td>${c.companyTitle }</td>
-									<td>${c.companyOperations }</td>
-									<td>${c.currency }</td>
-									<td>${c.openSharePrice }</td>
-									<td>${c.sector }</td>
-									<td>${c.shareCount }</td>
-									<td>${c.turnover }</td>
-									
-									<td>
-										<a href="/company/edit?cid=${c.companyCode }" class="btn btn-sm btn-info">
-											EDIT
-										</a>
-									</td>
-									<td>
-										<a href="/stocks/byCompany?cid=${c.companyCode }" class="btn btn-sm btn-info">
-											STOCKS
-										</a>
-									</td>
-									
+									<td>${s.itemName }</td>
+									<td>${s.itemPrice }</td>
+									<td>${s.updatedDate }</td>
+									<td>${s.updatedTime }</td>
+								
 								</tr>
 							</c:forEach>
 						</tbody>
